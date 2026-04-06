@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # tikimiki
 
 [cite_start]**Platforma za održavanje i učešće na hakatonima** [cite: 3]
