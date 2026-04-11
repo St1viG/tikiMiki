@@ -1,7 +1,3 @@
-/* ══════════════════════════════════════
-   RESET & CUSTOM PROPERTIES
-══════════════════════════════════════ */
-
 *{box-sizing:border-box;margin:0;padding:0}
 
 :root{
@@ -12,7 +8,7 @@
     --violet:#5F4A8B;
     --violet-light:#A78BFA;
     --lemon:#EDD94B;
-    --lemon-vivid:#EDD94B;
+    --lemon-vivid:#ffe734;
     --text:#E0D9FF;
     --muted:#7A7690;
     --font:'Space Grotesk',sans-serif;
@@ -22,11 +18,11 @@
     --pad:26px;
 
     /* Typography scale */
-    --fs-xs:   12px;   /* badge, timestamp, tag, footer */
-    --fs-sm:   16px;   /* secondary labels, chips, buttons */
-    --fs-base: 18px;   /* content text, post body */
-    --fs-lg:   20px;   /* menu items */
-    --fs-xl:   34px;   /* logo */
+    --fs-xs:   12px;
+    --fs-sm:   16px;
+    --fs-base: 18px;
+    --fs-lg:   20px;
+    --fs-xl:   34px;
 
     /* Border radius scale */
     --r-sm: 7px;
@@ -34,9 +30,7 @@
     --r-lg: 14px;
 }
 
-/* ══════════════════════════════════════
-   BASE
-══════════════════════════════════════ */
+/* BASE */
 
 body{
     background:var(--bg);
@@ -53,9 +47,7 @@ body{
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
 ::-webkit-scrollbar-thumb:hover{background:var(--violet)}
 
-/* ══════════════════════════════════════
-   NAVIGATION
-══════════════════════════════════════ */
+/* NAVIGATION */
 
 nav{
     position:sticky;
@@ -122,7 +114,7 @@ nav{
     box-shadow:0 0 0 3px rgba(95,74,139,.18);
 }
 
-.search-ico{
+.search-icon{
     position:absolute;
     left:11px;
     top:50%;
@@ -199,9 +191,7 @@ nav{
     border-color:var(--violet-light);
 }
 
-/* ══════════════════════════════════════
-   LAYOUT
-══════════════════════════════════════ */
+/* LAYOUT */
 
 .layout{
     max-width:1150px;
@@ -213,9 +203,7 @@ nav{
     align-items:start;
 }
 
-/* ══════════════════════════════════════
-   LEFT SIDEBAR / MENU
-══════════════════════════════════════ */
+/* LEFT SIDEBAR / MENU */
 
 .sidebar-left{
     padding-right:4px;
@@ -246,14 +234,15 @@ nav{
     color:var(--lemon);
 }
 
-.menu-item.active .ico{
+.menu-item.active .icon{
     color:var(--lemon);
 }
 
-.ico{
+.icon{
     font-size:var(--fs-base);
     width:18px;
     text-align:center;
+
     color:var(--muted);
 }
 
@@ -272,19 +261,169 @@ nav{
     text-transform:uppercase;
 }
 
-.premium-item{color:var(--lemon-vivid) !important}
-.premium-item .ico{color:var(--lemon-vivid) !important}
 
-/* ══════════════════════════════════════
-   FEED
-══════════════════════════════════════ */
+/* CRYSTAL BUTTON */
+
+.crystal-button{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:9px 10px;
+    border-radius:var(--r-md);
+    font-size:var(--fs-lg);
+    color:var(--muted);
+    cursor:pointer;
+    transition:all .2s ease;
+    margin-bottom:1px;
+
+    position:relative;
+    overflow:hidden;
+
+    background:rgba(20, 20, 30, 0.6);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.08);
+
+    background-image:linear-gradient(
+        120deg,
+        #00f5ff 0%,
+        #7df9ff 20%,
+        #ffffff 40%,
+        #ff9ff3 60%,
+        #ff4fd8 80%,
+        #00f5ff 100%
+    );
+    background-size:200% auto;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+    color:transparent;
+
+    text-shadow:
+        0 0 5px rgba(255,255,255,0.6),
+        0 0 10px rgba(0,255,255,0.4),
+        0 0 15px rgba(255,0,200,0.3);
+
+    animation:crystal-text 4s linear infinite;
+
+    box-shadow:
+        inset 0 0 10px rgba(255,255,255,0.05),
+        0 0 12px rgba(0,255,255,0.08);
+}
+
+.crystal-button::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:inherit;
+
+    background:linear-gradient(
+        120deg,
+        #00f5ff,
+        #7df9ff,
+        #ffffff,
+        #ff9ff3,
+        #ff4fd8,
+        #00f5ff
+    );
+
+    background-size:300% 300%;
+    opacity:0.12;
+    filter:blur(12px);
+
+    animation:crystal-bg 6s linear infinite;
+    transition:opacity .25s, filter .25s;
+
+    z-index:0;
+}
+
+.crystal-button > *{
+    position:relative;
+    z-index:1;
+}
+
+.crystal-button:hover{
+    transform:translateY(-2px) scale(1.02);
+
+    text-shadow:
+        0 0 8px rgba(255,255,255,0.9),
+        0 0 16px rgba(0,255,255,0.7),
+        0 0 22px rgba(255,0,200,0.6);
+
+    filter:brightness(1.15) saturate(1.2);
+
+    box-shadow:
+        inset 0 0 12px rgba(255,255,255,0.08),
+        0 0 18px rgba(0,255,255,0.25),
+        0 0 28px rgba(255,0,200,0.15);
+}
+
+.crystal-button:hover::before{
+    opacity:0.3;
+    filter:blur(16px);
+}
+
+.crystal-button:active{
+    transform:translateY(1px) scale(0.98);
+
+    filter:brightness(0.9);
+
+    text-shadow:
+        0 0 3px rgba(255,255,255,0.6),
+        0 0 6px rgba(0,255,255,0.4);
+
+    box-shadow:
+        inset 0 0 15px rgba(0,0,0,0.6),
+        0 0 10px rgba(0,255,255,0.15);
+}
+
+.crystal-icon{
+    font-size:var(--fs-base);
+    width:18px;
+    text-align:center;
+
+    background:linear-gradient(
+        120deg,
+        #00f5ff 0%,
+        #7df9ff 20%,
+        #ffffff 40%,
+        #ff9ff3 60%,
+        #ff4fd8 80%,
+        #00f5ff 100%
+    );
+    background-size:200% auto;
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+    color:transparent;
+
+    text-shadow:
+        0 0 3px rgba(255,255,255,0.6),
+        0 0 6px rgba(0,255,255,0.4);
+
+    animation:crystal-text 4s linear infinite;
+
+    filter:contrast(1.2) brightness(1.1);
+}
+
+@keyframes crystal-text{ 
+    0% {background-position:0% center;} 
+    100%{background-position:200% center;} 
+}
+
+@keyframes crystal-bg{
+    0% { background-position:0% 50%; }
+    100% { background-position:200% 50%; }
+}
+
+/* FEED */
 
 .feed{
     padding:0 14px;
     min-width:0;
 }
 
-/* ── Composer ── */
+/* Composer */
 
 .composer{
     background:var(--surface);
@@ -369,7 +508,7 @@ nav{
     transform:scale(.96);
 }
 
-/* ── Hackathon card ── */
+/* Hackathon card */
 
 .hack-card{
     background:var(--surface);
@@ -415,7 +554,6 @@ nav{
     gap:5px;
 }
 
-/* Animated dot inside .live-pill — add <span class="live-dot"></span> in your HTML */
 .live-dot{
     width:6px;
     height:6px;
@@ -458,7 +596,7 @@ nav{
     margin-bottom:10px;
 }
 
-/* ── Tags ── */
+/* Tags */
 
 .tag{
     display:inline-block;
@@ -530,7 +668,7 @@ nav{
 }
 
 .mention {
-  color: var(--text); /* violet text */
+  color: var(--text);
   background: var(--violet);
   padding: 2px 2px;
   border-radius: 2px;
@@ -539,14 +677,14 @@ nav{
   transition: all 0.2s ease;
 }
 
-/* hover efekat */
+
 .mention:hover {
   color: var(--text);
   background: var(--violet-light);
   box-shadow: 0 0 8px --violet;
 }
 
-/* ── Post ── */
+/* Post */
 
 .post{
     background:var(--surface);
@@ -648,35 +786,7 @@ nav{
     border-left:0.5px solid var(--border) !important;
 }
 
-/* ══════════════════════════════════════
-   CRYSTAL TEXT ANIMATION
-══════════════════════════════════════ */
-
-.crystal-text{
-    background:linear-gradient(
-        120deg,
-        #00f5ff 0%,
-        #7df9ff 20%,
-        #ffffff 40%,
-        #ff9ff3 60%,
-        #ff4fd8 80%,
-        #00f5ff 100%
-    );
-    background-size:200% auto;
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    background-clip:text;
-    color:transparent;
-    text-shadow:
-        0 0 5px rgba(255,255,255,0.6),
-        0 0 10px rgba(0,255,255,0.4),
-        0 0 15px rgba(255,0,200,0.3);
-    animation:crystal-shimmer 4s linear infinite;
-}
-
-/* ══════════════════════════════════════
-   RIGHT SIDEBAR & SOCIAL CARD
-══════════════════════════════════════ */
+/* RIGHT SIDEBAR */
 
 .sidebar-right{
     padding-left:16px;
@@ -835,18 +945,7 @@ nav{
     color:var(--lemon-vivid);
 }
 
-/* ══════════════════════════════════════
-   FOCUS ACCESSIBILITY
-══════════════════════════════════════ */
 
-:focus-visible{
-    outline:2px solid var(--violet);
-    outline-offset:2px;
-}
-
-/* ══════════════════════════════════════
-   RESPONSIVE
-══════════════════════════════════════ */
 
 @media(max-width:760px){
     .sidebar-left,.sidebar-right{display:none}
