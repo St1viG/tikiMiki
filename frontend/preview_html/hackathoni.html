@@ -26,7 +26,7 @@
   </div>
 </nav>
 
-<div class="layout" style="grid-template-columns:var(--sidebar-w) 1fr;">
+<div class="layout">
 
   <aside class="sidebar-left">
     <div class="menu-item" onclick="window.location.href='home_page.html'"><span class="icon">⌂</span> Početna</div>
@@ -39,7 +39,7 @@
     <div class="crystal-button"><span class="crystal-icon">◆</span> Premium</div>
   </aside>
 
-<div class="hk-page" data-filter="all" style="max-width:none;margin:0;padding:4px 14px 40px;">
+<div class="hk-page" data-filter="all" style="max-width:none;margin:0;padding:4px 14px 40px;min-width:0;">
 
   <!-- PAGE HEADER -->
   <header class="hk-header">
@@ -377,19 +377,73 @@
     </div>
   </section>
 
-  <footer style="margin-top:24px;padding:0 2px;text-align:center;">
-    <div style="display:flex;flex-wrap:wrap;gap:6px 10px;margin-bottom:10px;justify-content:center;">
-      <a style="font-size:var(--fs-xs);color:var(--muted);cursor:pointer;">O nama</a> <span style="font-size:10px;color:var(--muted);text-decoration:none;">·</span>
-      <a style="font-size:var(--fs-xs);color:var(--muted);cursor:pointer;">Pristupačnost</a> <span style="font-size:10px;color:var(--muted);text-decoration:none;">·</span>
-      <a style="font-size:var(--fs-xs);color:var(--muted);cursor:pointer;">Centar za pomoć</a> <span style="font-size:10px;color:var(--muted);text-decoration:none;">·</span>
-      <a style="font-size:var(--fs-xs);color:var(--muted);cursor:pointer;">Privatnost i uslovi</a>
+</div>
+
+  <aside class="sidebar-right">
+    <div class="social-card" onclick="window.location.href='cohor.html'" style="cursor:pointer">
+      <div class="social-card-header">
+        <div class="social-card-title">Cohor</div>
+        <div class="arrow-circle">›</div>
+      </div>
+      <div class="preview-list">
+        <div class="preview-row">
+          <div class="pr-dot dot-green"></div>
+          <div class="pr-info">
+            <div class="pr-name">ETF HackWeek server</div>
+            <div class="pr-sub">Miki: Počinjemo za 10 min</div>
+          </div>
+          <div class="pr-badge green">12</div>
+        </div>
+        <div class="preview-row">
+          <div class="pr-dot dot-violet"></div>
+          <div class="pr-info">
+            <div class="pr-name">digitalci</div>
+            <div class="pr-sub">StiviG: buzz</div>
+          </div>
+          <div class="pr-badge">7</div>
+        </div>
+      </div>
     </div>
-    <div style="font-size:var(--fs-s);color:var(--violet-light);">tiki<span style="color:var(--lemon)">miki</span> © 2026</div>
-  </footer>
+
+    <div class="social-card" onclick="window.location.href='gamehub.html'">
+      <div class="social-card-header">
+        <div class="social-card-title">GameHub</div>
+        <div class="arrow-circle">›</div>
+      </div>
+      <div class="preview-list">
+        <div class="preview-row">
+          <div class="pr-dot" style="background:#00f5ff;"></div>
+          <div class="pr-info">
+            <div class="pr-name">Daily Spin</div>
+            <div class="pr-sub"></div>
+          </div>
+          <div class="pr-badge">XP</div>
+        </div>
+        <div class="preview-row">
+          <div class="pr-dot" style="background:#ff9ff3;"></div>
+          <div class="pr-info">
+            <div class="pr-name">Daily Minigame</div>
+            <div class="pr-sub">Pređi današnju igricu</div>
+          </div>
+          <div class="pr-badge">🔥</div>
+        </div>
+      </div>
+    </div>
+  </aside>
 
 </div>
 
-</div>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a>O nama</a> <span>·</span>
+      <a>Pristupačnost</a> <span>·</span>
+      <a>Centar za pomoć</a> <span>·</span>
+      <a>Privatnost i uslovi</a>
+    </div>
+    <div class="footer-copy">tiki<span>miki</span> © 2026</div>
+  </div>
+</footer>
 
 <script>
   const hkPage = document.querySelector('.hk-page');

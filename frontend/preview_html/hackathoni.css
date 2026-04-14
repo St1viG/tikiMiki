@@ -289,7 +289,7 @@
 .hk-featured:hover{border-color:var(--violet)}
 
 .hk-featured-banner{
-    background:var(--violet);
+    background:linear-gradient(135deg,#1A0E3D,#2E1A6B);
     padding:16px 20px;
     display:flex;
     align-items:flex-end;
@@ -531,7 +531,7 @@
 
 .hk-grid{
     display:grid;
-    grid-template-columns:repeat(3, 1fr);
+    grid-template-columns:repeat(2, 1fr);
     gap:12px;
 }
 
@@ -552,7 +552,7 @@
 
 .hk-card-banner{
     height:44px;
-    background:var(--violet);
+    background:linear-gradient(135deg,#1A0E3D,#2E1A6B);
     display:flex;
     align-items:center;
     padding:0 12px;
@@ -825,7 +825,7 @@
 /* ── RESPONSIVE ──────────────────────────────────────────── */
 
 @media(max-width:1000px){
-    .hk-grid{grid-template-columns:repeat(2, 1fr)}
+    .hk-grid{grid-template-columns:1fr}
     .hk-featured-meta{grid-template-columns:repeat(2, 1fr)}
 }
 
