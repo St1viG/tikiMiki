@@ -104,6 +104,11 @@
         <div class="ch-item" onclick="switchChannel(this,'resursi','Korisni linkovi i materijali')">
           <span class="ch-icon">📎</span><span class="ch-name">resursi</span>
         </div>
+        <div class="ch-section">Bounty</div>
+        <div class="ch-item ch-unread" onclick="switchChannel(this,'bounties','Sponzorski izazovi — prijavite se za posebne nagrade')">
+          <span class="ch-icon">💰</span><span class="ch-name">bounties</span>
+          <span class="ch-badge ch-badge-v">3</span>
+        </div>
         <div class="ch-section">Timovi</div>
         <div class="ch-item ch-unread" onclick="switchChannel(this,'tim-digitalci','Privatni kanal tima digitalci')">
           <span class="ch-icon">🔒</span><span class="ch-name">tim-digitalci</span>
@@ -525,6 +530,97 @@
         </div>
 
       </div><!-- end predaja-panel -->
+
+      <!-- ── BOUNTIES PANEL ── -->
+      <div id="bounties-panel" style="display:none;flex:1;flex-direction:column;overflow-y:auto;background:var(--bg);">
+
+        <!-- Header -->
+        <div style="padding:24px 28px 0;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;">
+            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#1A1500,#3A2E00);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">💰</div>
+            <div>
+              <div style="font-size:13px;font-weight:600;color:var(--lemon-vivid)">Sponzorski Bounty Izazovi <span style="font-size:11px;font-weight:500;color:var(--muted);margin-left:4px">· ETF HackWeek 2026</span></div>
+              <div style="font-size:12px;color:var(--muted);margin-top:1px">Prijavi tim za posebne izazove — svako rešenje se automatski razmatra za nagradu pri predaji.</div>
+            </div>
+          </div>
+
+          <!-- Info baner -->
+          <div style="background:#1A1500;border:0.5px solid #3A3600;border-radius:12px;padding:14px 18px;margin-bottom:24px;font-size:12px;color:#D4C170;line-height:1.65;">
+            ℹ️ Prijavom na bounty, vaše finalno rešenje biće <strong style="color:var(--lemon-vivid)">automatski razmatrano</strong> za tu nagradu. Tim može biti prijavljeni na više bounty-a istovremeno. Prijava je dostupna sve dok hakathon traje.
+          </div>
+
+          <!-- Logitech Bounty -->
+          <div class="bounty-card" id="bounty-logitech">
+            <div class="bounty-card-header">
+              <div class="bounty-sponsor-badge" style="background:#0D1A0D;color:#5DCAA5;border-color:#0F3D30;">
+                <span style="font-size:15px">🖱</span> Logitech
+              </div>
+              <div class="bounty-prize-pill">$500 · Gaming Gear paket</div>
+            </div>
+            <div class="bounty-title">Najbolji korisnički interfejs &amp; UX</div>
+            <div class="bounty-desc">Logitech nagrađuje tim koji posveti posebnu pažnju kvalitetu korisničkog iskustva. Tražimo intuitivne interakcije, pažljivo osmišljenu navigaciju i dostupnost (accessibility). Rešenje ne mora koristiti periferije — fokus je na softverskom UX-u koji bi bio prirodan za svakodnevnog korisnika.</div>
+            <div class="bounty-tags">
+              <span class="bounty-tag">UX Design</span>
+              <span class="bounty-tag">Accessibility</span>
+              <span class="bounty-tag">Frontend</span>
+            </div>
+            <div class="bounty-footer">
+              <div class="bounty-applicants" id="bounty-logitech-count">
+                <span style="color:var(--muted);font-size:12px">👥 <span id="logitech-count-num">7</span> timova prijavljeno</span>
+              </div>
+              <button class="bounty-apply-btn" id="btn-logitech" onclick="applyBounty('logitech', this)">Prijavi tim</button>
+            </div>
+          </div>
+
+          <!-- Anthropic Bounty -->
+          <div class="bounty-card" id="bounty-anthropic">
+            <div class="bounty-card-header">
+              <div class="bounty-sponsor-badge" style="background:#0D0D1A;color:#C9B8FF;border-color:#2D1A55;">
+                <span style="font-size:15px">🤖</span> Anthropic
+              </div>
+              <div class="bounty-prize-pill">$1000 · Claude API krediti (1 god.)</div>
+            </div>
+            <div class="bounty-title">Najodgovornija primena AI-a</div>
+            <div class="bounty-desc">Anthropic dodeljuje nagradu projektu koji na najzreliji i najodgovorniji način integriše AI u svoje rešenje. Posebno se vrednuju: transparentnost prema korisniku (objašnjenje AI odluka), zaštita privatnosti, prevencija zloupotrebe i graceful degradation kada AI ne funkcioniše ispravno. Rešenja koja slepo prosleđuju korisnički unos bez ikakvih provera neće biti razmatrana.</div>
+            <div class="bounty-tags">
+              <span class="bounty-tag">AI Safety</span>
+              <span class="bounty-tag">LLM Integration</span>
+              <span class="bounty-tag">Responsible AI</span>
+            </div>
+            <div class="bounty-footer">
+              <div class="bounty-applicants">
+                <span style="color:var(--muted);font-size:12px">👥 <span id="anthropic-count-num">12</span> timova prijavljeno</span>
+              </div>
+              <button class="bounty-apply-btn" id="btn-anthropic" onclick="applyBounty('anthropic', this)">Prijavi tim</button>
+            </div>
+          </div>
+
+          <!-- JetBrains Bounty -->
+          <div class="bounty-card" id="bounty-jetbrains" style="margin-bottom:32px;">
+            <div class="bounty-card-header">
+              <div class="bounty-sponsor-badge" style="background:#1A0D0D;color:#F87171;border-color:#3D1A1A;">
+                <span style="font-size:15px">⌨</span> JetBrains
+              </div>
+              <div class="bounty-prize-pill">$2000 · JetBrains All Products Pack (1 god.)</div>
+            </div>
+            <div class="bounty-title">Najčistiji i najodrživiji kod</div>
+            <div class="bounty-desc">JetBrains vrednuje kvalitet samog koda — ne samo krajnji rezultat. Kriterijumi uključuju: čitljivost i konzistentnu strukturu projekta, pokrivenost testovima (unit ili integration), jasnu dokumentaciju i arhitekturalne odluke koje se dobro skaliraju. Prednost imaju projekti koji koriste statičku analizu ili linting alate. GitHub repozitorijum mora biti javno dostupan u trenutku predaje.</div>
+            <div class="bounty-tags">
+              <span class="bounty-tag">Code Quality</span>
+              <span class="bounty-tag">Testing</span>
+              <span class="bounty-tag">Clean Architecture</span>
+              <span class="bounty-tag">Documentation</span>
+            </div>
+            <div class="bounty-footer">
+              <div class="bounty-applicants">
+                <span style="color:var(--muted);font-size:12px">👥 <span id="jetbrains-count-num">9</span> timova prijavljeno</span>
+              </div>
+              <button class="bounty-apply-btn" id="btn-jetbrains" onclick="applyBounty('jetbrains', this)">Prijavi tim</button>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- end bounties-panel -->
 
       <!-- ── GLASANJE PUBLIKE PANEL ── -->
       <div id="glasanje-panel" style="display:none;flex:1;flex-direction:column;overflow-y:auto;background:var(--bg);">
@@ -1159,41 +1255,42 @@
 
       const glasanjePanel = document.getElementById('glasanje-panel');
       const rezultatiPanel = document.getElementById('rezultati-panel');
+      const bountiesPanel = document.getElementById('bounties-panel');
 
-      if (name === 'predaja-projekta') {
-        serverMsgs.style.display = 'none';
-        predajaPanel.style.display = 'flex';
-        glasanjePanel.style.display = 'none';
-        rezultatiPanel.style.display = 'none';
-        typingBar.style.display = 'none';
-        chatInputWrap.style.display = 'none';
-      } else if (name === 'glasanje-publike') {
+      function hideAll() {
         serverMsgs.style.display = 'none';
         predajaPanel.style.display = 'none';
-        glasanjePanel.style.display = 'flex';
+        glasanjePanel.style.display = 'none';
         rezultatiPanel.style.display = 'none';
+        bountiesPanel.style.display = 'none';
         typingBar.style.display = 'none';
         chatInputWrap.style.display = 'none';
+      }
+
+      if (name === 'predaja-projekta') {
+        hideAll();
+        predajaPanel.style.display = 'flex';
+      } else if (name === 'glasanje-publike') {
+        hideAll();
+        glasanjePanel.style.display = 'flex';
         updateVotingCountdown();
       } else if (name === 'rezultati') {
         if (isHackathonActive()) {
-          // channel is locked while hackathon is running
-          // revert the click visually — don't open it
           document.querySelectorAll('.ch-item').forEach(i => i.classList.remove('ch-active'));
           showRezultatiLockedToast();
           return;
         }
-        serverMsgs.style.display = 'none';
-        predajaPanel.style.display = 'none';
-        glasanjePanel.style.display = 'none';
+        hideAll();
         rezultatiPanel.style.display = 'flex';
-        typingBar.style.display = 'none';
-        chatInputWrap.style.display = 'none';
+      } else if (name === 'bounties') {
+        hideAll();
+        bountiesPanel.style.display = 'flex';
       } else {
         serverMsgs.style.display = '';
         predajaPanel.style.display = 'none';
         glasanjePanel.style.display = 'none';
         rezultatiPanel.style.display = 'none';
+        bountiesPanel.style.display = 'none';
         typingBar.style.display = '';
         chatInputWrap.style.display = '';
       }
@@ -1592,6 +1689,95 @@
       // Change submit button text
       document.getElementById('rezultati-submit-btn').textContent = 'Ažuriraj rezultate';
       rezultatiSubmitted = false;
+    }
+
+
+
+    /* ── Bounty prijava ── */
+    const appliedBounties = new Set();
+    const bountyNames = { logitech: 'Logitech UX', anthropic: 'Anthropic AI', jetbrains: 'JetBrains Code' };
+
+    function applyBounty(bountyId, btn) {
+      const isApplied = appliedBounties.has(bountyId);
+
+      if (!isApplied) {
+        appliedBounties.add(bountyId);
+        const countEl = document.getElementById(bountyId + '-count-num');
+        if (countEl) countEl.textContent = parseInt(countEl.textContent) + 1;
+        btn.textContent = '✓ Prijavljen — Odjavi se';
+        btn.classList.add('bounty-apply-btn-done');
+        showBountyToast(true, bountyId);
+      } else {
+        showUnapplyModal(bountyId, btn);
+      }
+    }
+
+    function showUnapplyModal(bountyId, btn) {
+      let overlay = document.getElementById('bounty-modal-overlay');
+      if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.id = 'bounty-modal-overlay';
+        overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(3px);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s';
+        overlay.innerHTML = `
+          <div id="bounty-modal" style="background:#0D0A1A;border:0.5px solid #3D2E6B;border-radius:16px;padding:28px 28px 24px;max-width:360px;width:90%;box-shadow:0 8px 48px rgba(0,0,0,.6);transform:translateY(12px);transition:transform .2s">
+            <div style="font-size:22px;margin-bottom:12px;text-align:center">↩</div>
+            <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:8px;text-align:center" id="modal-title">Odjava sa bounty-a</div>
+            <div style="font-size:13px;color:var(--muted);line-height:1.65;text-align:center;margin-bottom:24px" id="modal-desc">Da li sigurno želiš da odjaviš tim <strong style="color:var(--violet-light)">digitalci</strong> sa bounty-a <strong id="modal-bounty-name" style="color:var(--text)"></strong>? Vaše rešenje više neće biti razmatrano za ovu nagradu.</div>
+            <div style="display:flex;gap:10px;">
+              <button id="modal-cancel-btn" style="flex:1;background:var(--surface2);color:var(--muted);border:0.5px solid var(--border);border-radius:8px;padding:10px;font-size:13px;font-weight:600;font-family:var(--font);cursor:pointer;transition:color .15s,border-color .15s" onmouseover="this.style.color='var(--text)';this.style.borderColor='var(--muted)'" onmouseout="this.style.color='var(--muted)';this.style.borderColor='var(--border)'">Odustani</button>
+              <button id="modal-confirm-btn" style="flex:1;background:#2D0D0D;color:#F87171;border:0.5px solid #3D1A1A;border-radius:8px;padding:10px;font-size:13px;font-weight:600;font-family:var(--font);cursor:pointer;transition:background .15s,border-color .15s" onmouseover="this.style.background='#3D1A1A'" onmouseout="this.style.background='#2D0D0D'">Da, odjavi me</button>
+            </div>
+          </div>`;
+        document.body.appendChild(overlay);
+        overlay.addEventListener('click', e => { if (e.target === overlay) closeUnapplyModal(); });
+      }
+
+      document.getElementById('modal-bounty-name').textContent = bountyNames[bountyId];
+      document.getElementById('modal-cancel-btn').onclick = closeUnapplyModal;
+      document.getElementById('modal-confirm-btn').onclick = () => confirmUnapply(bountyId, btn);
+
+      overlay.style.display = 'flex';
+      requestAnimationFrame(() => {
+        overlay.style.opacity = '1';
+        document.getElementById('bounty-modal').style.transform = 'translateY(0)';
+      });
+    }
+
+    function closeUnapplyModal() {
+      const overlay = document.getElementById('bounty-modal-overlay');
+      if (!overlay) return;
+      overlay.style.opacity = '0';
+      document.getElementById('bounty-modal').style.transform = 'translateY(12px)';
+      setTimeout(() => { overlay.style.display = 'none'; }, 200);
+    }
+
+    function confirmUnapply(bountyId, btn) {
+      appliedBounties.delete(bountyId);
+      const countEl = document.getElementById(bountyId + '-count-num');
+      if (countEl) countEl.textContent = parseInt(countEl.textContent) - 1;
+      btn.textContent = 'Prijavi tim';
+      btn.classList.remove('bounty-apply-btn-done');
+      closeUnapplyModal();
+      showBountyToast(false, bountyId);
+    }
+
+    function showBountyToast(applied, bountyId) {
+      let t = document.getElementById('bounty-toast');
+      if (!t) {
+        t = document.createElement('div'); t.id = 'bounty-toast';
+        t.style.cssText = 'position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);border-radius:10px;padding:12px 20px;font-size:13px;font-weight:500;color:var(--text);display:flex;align-items:center;gap:10px;z-index:999;opacity:0;transition:opacity .25s,transform .25s,background .2s,border-color .2s;pointer-events:none;box-shadow:0 4px 24px rgba(0,0,0,.5)';
+        document.body.appendChild(t);
+      }
+      if (applied) {
+        t.style.background = '#1A1500'; t.style.border = '0.5px solid #3A3600';
+        t.innerHTML = '<span style="font-size:16px">💰</span> Tim <strong style="color:var(--lemon-vivid)">digitalci</strong> prijavljen na <strong style="color:var(--lemon-vivid)">' + bountyNames[bountyId] + '</strong>!';
+      } else {
+        t.style.background = '#1A0D0D'; t.style.border = '0.5px solid #3D1A1A';
+        t.innerHTML = '<span style="font-size:16px">↩</span> Odjavljeni sa bounty-a <strong style="color:#F87171">' + bountyNames[bountyId] + '</strong>.';
+      }
+      t.style.opacity = '1'; t.style.transform = 'translateX(-50%) translateY(0)';
+      clearTimeout(t._t);
+      t._t = setTimeout(() => { t.style.opacity = '0'; t.style.transform = 'translateX(-50%) translateY(10px)'; }, 3500);
     }
 
 
