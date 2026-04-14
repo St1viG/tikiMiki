@@ -12,27 +12,29 @@
 /* ── HEADER ──────────────────────────────────────────────── */
 
 .tm-header{
+    background:var(--surface);
+    border:0.5px solid var(--border);
+    border-radius:var(--r-lg);
+    padding:16px 20px;
+    margin-bottom:14px;
     display:flex;
-    align-items:flex-start;
+    align-items:center;
     justify-content:space-between;
     gap:16px;
-    margin-bottom:20px;
-    padding-bottom:16px;
-    border-bottom:0.5px solid var(--border);
 }
 
 .tm-title{
-    font-size:34px;
+    font-size:28px;
     font-weight:600;
     letter-spacing:-.02em;
     color:var(--text);
-    line-height:1.1;
+    line-height:1.2;
 }
 
 .tm-sub{
-    font-size:var(--fs-base);
+    font-size:var(--fs-xs);
     color:var(--muted);
-    margin-top:4px;
+    margin-top:3px;
 }
 
 .tm-create-btn{
@@ -328,8 +330,7 @@
 
 /* Minimal roster list */
 .tm-roster-min{
-    max-width:520px;
-    margin:14px auto 0;
+    margin:14px 0 0;
     padding:12px 14px;
     background:var(--surface);
     border:0.5px solid var(--border);
@@ -733,7 +734,7 @@
     .tm-open-grid{grid-template-columns:1fr}
     .tm-solo-grid{grid-template-columns:repeat(2, 1fr)}
     .tm-hero-name{font-size:32px}
-    .tm-title{font-size:26px}
+    .tm-title{font-size:24px}
     .tm-sug{flex-direction:column;gap:10px;padding:14px}
     .tm-sug-match{font-size:28px}
     .tm-tabs{overflow-x:auto;flex-wrap:nowrap;white-space:nowrap}
