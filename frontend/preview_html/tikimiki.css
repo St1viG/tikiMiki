@@ -32,6 +32,11 @@
 
 /* BASE */
 
+html{
+    overflow-y:scroll;
+    scrollbar-gutter:stable;
+}
+
 body{
     background:var(--bg);
     color:var(--text);

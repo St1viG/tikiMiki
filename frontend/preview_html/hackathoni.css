@@ -9,6 +9,42 @@
     padding:24px var(--pad) 60px;
 }
 
+.hk-footer{
+    max-width:1150px;
+    margin:0 auto;
+    padding:0 var(--pad) 32px;
+    text-align:center;
+}
+
+.hk-footer-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 10px;
+    margin-bottom:10px;
+    justify-content:center;
+}
+
+.hk-footer-links a{
+    font-size:var(--fs-xs);
+    color:var(--muted);
+    cursor:pointer;
+}
+
+.hk-footer-links span{
+    font-size:10px;
+    color:var(--muted);
+    text-decoration:none;
+}
+
+.hk-footer-brand{
+    font-size:var(--fs-s);
+    color:var(--violet-light);
+}
+
+.hk-footer-brand span{
+    color:var(--lemon);
+}
+
 /* ── PAGE HEADER ─────────────────────────────────────────── */
 
 .hk-header{
@@ -87,6 +123,7 @@
 
 .hk-tabs{
     display:flex;
+    justify-content:center;
     gap:4px;
     margin-bottom:16px;
     border-bottom:0.5px solid var(--border);
@@ -714,6 +751,76 @@
 }
 
 .hk-apply-meta strong{color:var(--text);font-weight:600}
+
+/* ── COMPLETED LIST ──────────────────────────────────────── */
+
+.hk-done-list{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.hk-done-row{
+    background:var(--surface);
+    border:0.5px solid var(--border);
+    border-radius:var(--r-md);
+    padding:12px 14px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    transition:border-color .15s;
+}
+
+.hk-done-row:hover{border-color:var(--violet)}
+
+.hk-done-rank{
+    font-size:var(--fs-sm);
+    font-weight:700;
+    color:var(--lemon);
+    min-width:46px;
+    text-align:center;
+    flex-shrink:0;
+}
+
+.hk-done-info{flex:1;min-width:0}
+
+.hk-done-name{
+    font-size:var(--fs-sm);
+    font-weight:600;
+    color:var(--text);
+    margin-bottom:2px;
+}
+
+.hk-done-meta{
+    font-size:var(--fs-xs);
+    color:var(--muted);
+}
+
+.hk-done-prize{
+    font-size:var(--fs-sm);
+    font-weight:600;
+    color:var(--lemon-vivid);
+    flex-shrink:0;
+}
+
+/* ── FILTERING (tab-driven section visibility) ───────────── */
+
+.hk-page[data-filter="active"]       .hk-section:not([data-section="active"]),
+.hk-page[data-filter="upcoming"]     .hk-section:not([data-section="upcoming"]),
+.hk-page[data-filter="applications"] .hk-section:not([data-section="applications"]),
+.hk-page[data-filter="mine"]         .hk-section:not([data-section="mine"]),
+.hk-page[data-filter="completed"]    .hk-section:not([data-section="completed"]){
+    display:none;
+}
+
+.hk-empty{
+    padding:40px 20px;
+    text-align:center;
+    font-size:var(--fs-sm);
+    color:var(--muted);
+    border:0.5px dashed var(--border);
+    border-radius:var(--r-lg);
+}
 
 /* ── RESPONSIVE ──────────────────────────────────────────── */
 
